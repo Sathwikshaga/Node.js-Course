@@ -13,7 +13,8 @@ console.log("last line");
 
 // writing files
 
-fs.writeFile("./docs/blog1.txt", "Hello, Sathwik", () => { // fs.writeFile => Asynchronous operations
+fs.writeFile("./docs/blog1.txt", "Hello, Sathwik", () => {
+    // fs.writeFile => Asynchronous operations
     console.log("file was written");
 });
 
@@ -22,7 +23,8 @@ fs.writeFile("./docs/blog2.txt", "Hello, Again", () => {
 });
 
 // Create and delete directories
-if (!fs.existsSync("./assets")) { // fs.existsSync, fs,mkdir, fs.rmdir => synchronous operations
+if (!fs.existsSync("./assets")) {
+    // fs.existsSync, fs,mkdir, fs.rmdir => synchronous operations
     fs.mkdir("./assets", (err) => {
         if (err) {
             console.log(err);
@@ -30,7 +32,8 @@ if (!fs.existsSync("./assets")) { // fs.existsSync, fs,mkdir, fs.rmdir => synchr
         console.log("folder created");
     });
 } else {
-    fs.rmdir("./assets", (err) => { // fs
+    fs.rmdir("./assets", (err) => {
+        // fs
         if (err) {
             console.log(err);
         }
@@ -40,11 +43,11 @@ if (!fs.existsSync("./assets")) { // fs.existsSync, fs,mkdir, fs.rmdir => synchr
 
 // deleting files
 
-if(fs.existsSync("./docs/deleteMe.txt")){
+if (fs.existsSync("./docs/deleteMe.txt")) {
     fs.unlink("./docs/deleteMe.txt", (err) => {
-        if(err){
+        if (err) {
             console.log(err);
         }
         console.log("file deleted");
-    })
+    });
 }
