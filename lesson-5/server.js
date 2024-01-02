@@ -1,10 +1,21 @@
-const http = require("http");
 const fs = require("fs");
+const http = require("http");
+const _ = require("lodash");
 
 const server = http.createServer((req, res) => {
     console.log(req.url, req.method);
 
-    // set header content type
+    const num = _.random(0, 20);
+    console.log(num);
+
+    const greet = _.once(() => {
+        console.log("Hello");
+    });
+
+    greet();
+    greet();
+
+    // set header to content type
     res.setHeader("Content-Type", "text/html");
     
     let path = "./lesson-4/views/";
@@ -30,16 +41,15 @@ const server = http.createServer((req, res) => {
     }
 
     fs.readFile(path, (err, data) => {
-        if(err){
+        if (err) {
             console.log(err);
             res.end();
-        }else{
-            // res.write(data);
+        } else {
             res.end(data);
         }
-    })
+    });
 });
 
-server.listen(3000, "localhost", () => {
+server.listen(3000, 'localhost', () => {
     console.log("listening for requests on port 3000");
 });
