@@ -11,7 +11,8 @@ app.listen(3000);
 // middleware and static files
 
 app.use(morgan("dev"));
-app.use(express.static("public"));
+
+app.use(express.static("./lesson-8/public"));
 
 // app.use((req, res, next) => {
 //     console.log("new request made:");
